@@ -60,13 +60,16 @@ function playRound(playerChoice, computerChoice) {
 function playGame() {
     let i = 0;
 
-    while(i <= 5) {
+    while(i < 5) {
         const playerChoice = getPlayerChoice();
         const computerChoice = getComputerChoice();
 
         playRound(playerChoice, computerChoice);
         i++;
     }
+    
+    let msg = playerScore > computerScore ? "You win! " : "You lose! ";
+    document.getElementById("score").innerHTML = msg + `You scored ${playerScore} vs ${computerScore}.`;
 
     return ;
 }
@@ -81,4 +84,3 @@ playButton.addEventListener("click", function() {
     document.getElementById("button").innerHTML = "Try again!";
     playGame();
 });
-
