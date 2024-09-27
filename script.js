@@ -11,35 +11,46 @@ function getComputerChoice() {
 // A funtion that prompts the user to enter rock, paper or scissors
 function getPlayerChoice() {
     let choice = prompt("Please choose rock, paper or scissors");
-    //if( choice === "rock" ) {
-    //    alert("Invalid: you must type either 'rock', 'paper' or 'scissors'. Make sure to write them correctly!");
-    //}
-   
-    return choice.toLowerCase();
+
+    switch( choice ) {
+        case undefined:
+        case null:
+            alert("You cancelled the game.");
+            return;
+        case "rock":
+        case "paper":
+        case "scissors":
+            return choice.toLowerCase();
+        default :
+            alert("Invalid: you must type either 'rock', 'paper' or 'scissors'. Make sure to write them correctly!");
+            return getPlayerChoice();
+    }
 }
 
 // Lets create a round
 function playRound(playerChoice, computerChoice) {
-    let roundWinner = (playerChoice === "rock" && computerChoice === "scissors") ? "Player" :
-                      (playerChoice === "rock" && computerChoice === "paper") ? "Computer" :
-                      (playerChoice === "paper" && computerChoice === "rock") ? "Player" :
-                      (playerChoice === "paper" && computerChoice === "scissors") ? "Computer" :
-                      (playerChoice === "scissors" && computerChoice === "paper") ? "Player" : 
-                      (playerChoice === "scissors" && computerChoice === "rock") ? "Computer" : "Tie";
+    if( playerChoice !== null && playerChoice !== undefined ) {
+        let roundWinner = (playerChoice === "rock" && computerChoice === "scissors") ? "Player" :
+                        (playerChoice === "rock" && computerChoice === "paper") ? "Computer" :
+                        (playerChoice === "paper" && computerChoice === "rock") ? "Player" :
+                        (playerChoice === "paper" && computerChoice === "scissors") ? "Computer" :
+                        (playerChoice === "scissors" && computerChoice === "paper") ? "Player" : 
+                        (playerChoice === "scissors" && computerChoice === "rock") ? "Computer" : "Tie";
 
-    switch(roundWinner) {
-        case "Player":
-            alert(`You won! ${playerChoice} beats ${computerChoice}.`)
-            break;
-        case "Computer":
-            alert(`You lose! ${computerChoice} beats ${playerScore}.`)
-            break;
-        case "Tie":
-            alert(`You were on a tie. Must try again!`)
-            break;
+        switch(roundWinner) {
+            case "Player":
+                alert(`You won! ${playerChoice} beats ${computerChoice}.`)
+                break;
+            case "Computer":
+                alert(`You lose! ${computerChoice} beats ${playerScore}.`)
+                break;
+            case "Tie":
+                alert(`You were on a tie. Must try again!`)
+                break;
+        }
+        return roundWinner;
     }
-
-    return roundWinner;
+    return ;
 }
 
 // Initialize the variables for computer and user scores
