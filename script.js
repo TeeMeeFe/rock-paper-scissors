@@ -16,7 +16,7 @@ function getPlayerChoice() {
         case undefined:
         case null:
             alert("You canceled the game.");
-            return;
+            return ;
         case "rock":
         case "paper":
         case "scissors":
@@ -29,8 +29,8 @@ function getPlayerChoice() {
 
 // Lets create a round
 function playRound(playerChoice, computerChoice) {
-    if( playerChoice !== null && playerChoice !== undefined ) {
-        let roundWinner = (playerChoice === "rock" && computerChoice === "scissors") ? "Player" :
+    if( playerChoice !== null || playerChoice !== undefined ) {
+        roundWinner = (playerChoice === "rock" && computerChoice === "scissors") ? "Player" :
                         (playerChoice === "rock" && computerChoice === "paper") ? "Computer" :
                         (playerChoice === "paper" && computerChoice === "rock") ? "Player" :
                         (playerChoice === "paper" && computerChoice === "scissors") ? "Computer" :
@@ -64,8 +64,12 @@ function playGame() {
         const playerChoice = getPlayerChoice();
         const computerChoice = getComputerChoice();
 
+        // Do not increment the index if it was a tie 
+        if( roundWinner !== "Tie" ) { i++; }
+        // Escape early if the game was canceled
+        if( playerChoice === null || playerChoice === undefined ) { return ; } 
+
         playRound(playerChoice, computerChoice);
-        i++;
     }
     
     let msg = playerScore > computerScore ? "You win! " : "You lose! ";
@@ -77,6 +81,7 @@ function playGame() {
 // Initialize the variables for computer and user scores
 let playerScore = 0;
 let computerScore = 0;
+let roundWinner;
 
 const playButton = document.getElementById("button");
 
