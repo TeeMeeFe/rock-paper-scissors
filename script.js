@@ -50,7 +50,6 @@ function playRound(playerChoice, computerChoice) {
                 alert(`You were on a tie. Must try again!`)
                 break;
         }
-
         return roundWinner;
     }
     return ;
@@ -58,6 +57,9 @@ function playRound(playerChoice, computerChoice) {
 
 // Lets play a game 5 times
 function playGame() {
+    // Reset these variables once we enter the game 
+    playerScore = 0;
+    computerScore = 0;
     let i = 0;
 
     while(i < 5) {
@@ -79,9 +81,9 @@ function playGame() {
     return ;
 }
 
-// Initialize the variables for computer and user scores
-let playerScore = 0;
-let computerScore = 0;
+// Initialize the variables for computer, user scores and some other
+let playerScore;
+let computerScore;
 let roundWinner;
 
 const playButton = document.getElementById("button");
