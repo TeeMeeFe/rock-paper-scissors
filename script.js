@@ -1,5 +1,3 @@
-console.log("Hello World!");
-
 // A function that randomly returns string values: "rock", "paper", "scissors"
 function getComputerChoice() {
     // Get a very simple, evenly distributed random between 0 and 100 as integers 
@@ -22,12 +20,12 @@ function getPlayerChoice() {
 
 // Lets create a round
 function playRound(playerChoice, computerChoice) {
-    let roundWinner = (playerChoice === "rock" & computerChoice === "scissors") ? "Player" :
-                      (playerChoice === "rock" & computerChoice === "paper") ? "Computer" :
-                      (playerChoice === "paper" & computerChoice === "rock") ? "Player" :
-                      (playerChoice === "paper" & computerChoice === "scissors") ? "Computer" :
-                      (playerChoice === "scissors" & computerChoice === "paper") ? "Player" : 
-                      (playerChoice === "scissors" & computerChoice === "rock") ? "Computer" : "Tie";
+    let roundWinner = (playerChoice === "rock" && computerChoice === "scissors") ? "Player" :
+                      (playerChoice === "rock" && computerChoice === "paper") ? "Computer" :
+                      (playerChoice === "paper" && computerChoice === "rock") ? "Player" :
+                      (playerChoice === "paper" && computerChoice === "scissors") ? "Computer" :
+                      (playerChoice === "scissors" && computerChoice === "paper") ? "Player" : 
+                      (playerChoice === "scissors" && computerChoice === "rock") ? "Computer" : "Tie";
 
     switch(roundWinner) {
         case "Player":
