@@ -64,12 +64,13 @@ function playGame() {
         const playerChoice = getPlayerChoice();
         const computerChoice = getComputerChoice();
 
-        // Do not increment the index if it was a tie 
-        if( roundWinner !== "Tie" ) { i++; }
         // Escape early if the game was canceled
         if( playerChoice === null || playerChoice === undefined ) { return ; } 
 
         playRound(playerChoice, computerChoice);
+
+        // Do increment the index if it was not a tie or something else
+        if( roundWinner === "Player" || roundWinner === "Computer" ) { i++; }
     }
     
     let msg = playerScore > computerScore ? "You win! " : "You lose! ";
