@@ -12,10 +12,10 @@ function getComputerChoice() {
 function getPlayerChoice() {
     let choice = prompt("Please choose rock, paper or scissors");
 
-    switch( choice ) {
+    switch(choice) {
         case undefined:
         case null:
-            alert("You cancelled the game.");
+            alert("You canceled the game.");
             return;
         case "rock":
         case "paper":
@@ -48,8 +48,26 @@ function playRound(playerChoice, computerChoice) {
                 alert(`You were on a tie. Must try again!`)
                 break;
         }
+        playerScore = roundWinner === "Player" ? playerScore+1 : playerScore;
+        computerScore = roundWinner === "Computer" ? computerScore+1 : computerScore;
+
         return roundWinner;
     }
+    return ;
+}
+
+// Lets play a game 5 times
+function playGame() {
+    let i = 0;
+
+    while(i <= 5) {
+        const playerChoice = getPlayerChoice();
+        const computerChoice = getComputerChoice();
+
+        playRound(playerChoice, computerChoice);
+        i++;
+    }
+
     return ;
 }
 
@@ -57,8 +75,10 @@ function playRound(playerChoice, computerChoice) {
 let playerScore = 0;
 let computerScore = 0;
 
-const playerChoice = getPlayerChoice();
-const computerChoice = getComputerChoice();
+const playButton = document.getElementById("button");
 
-playRound(playerChoice, computerChoice);
+playButton.addEventListener("click", function() {
+    document.getElementById("button").innerHTML = "Playing!";
+    playGame();
+});
 
