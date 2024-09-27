@@ -40,16 +40,16 @@ function playRound(playerChoice, computerChoice) {
         switch(roundWinner) {
             case "Player":
                 alert(`You won! ${playerChoice} beats ${computerChoice}.`)
+                playerScore += 1;
                 break;
             case "Computer":
-                alert(`You lose! ${computerChoice} beats ${playerScore}.`)
+                alert(`You lose! ${computerChoice} beats ${playerChoice}.`)
+                computerScore += 1;
                 break;
             case "Tie":
                 alert(`You were on a tie. Must try again!`)
                 break;
         }
-        playerScore = roundWinner === "Player" ? playerScore+1 : playerScore;
-        computerScore = roundWinner === "Computer" ? computerScore+1 : computerScore;
 
         return roundWinner;
     }
@@ -78,7 +78,7 @@ let computerScore = 0;
 const playButton = document.getElementById("button");
 
 playButton.addEventListener("click", function() {
-    document.getElementById("button").innerHTML = "Playing!";
+    document.getElementById("button").innerHTML = "Try again!";
     playGame();
 });
 
