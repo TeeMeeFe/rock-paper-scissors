@@ -10,7 +10,7 @@ function getComputerChoice() {
 
 // A funtion that prompts the user to enter rock, paper or scissors
 function getPlayerChoice() {
-    let choice = prompt("Please choose rock, paper or scissors");
+    let choice = prompt("Please choose rock, paper or scissors").toLowerCase();
 
     switch(choice) {
         case undefined:
@@ -20,7 +20,7 @@ function getPlayerChoice() {
         case "rock":
         case "paper":
         case "scissors":
-            return choice.toLowerCase();
+            return choice
         default :
             alert("Invalid: you must type either 'rock', 'paper' or 'scissors'. Make sure to write them correctly!");
             return getPlayerChoice();
