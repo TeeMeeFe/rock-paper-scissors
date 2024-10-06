@@ -20,8 +20,8 @@ function getPlayerChoice() {
         case "rock":
         case "paper":
         case "scissors":
-            return choice
-        default :
+            return choice;
+        default:
             alert("Invalid: you must type either 'rock', 'paper' or 'scissors'. Make sure to write them correctly!");
             return getPlayerChoice();
     }
@@ -56,7 +56,7 @@ function playRound(playerChoice, computerChoice) {
 }
 
 // Lets play a game 5 times
-function playGame() {
+/*function playGame() {
     // Reset these variables once we enter the game 
     playerScore = 0;
     computerScore = 0;
@@ -79,16 +79,16 @@ function playGame() {
     document.getElementById("score").innerHTML = msg + `You scored ${playerScore} vs ${computerScore}.`;
 
     return ;
-}
+}*/
 
 // Initialize the variables for computer, user scores and some other
 let playerScore;
 let computerScore;
 let roundWinner;
 
-const playButton = document.getElementById("button");
+/*const playButton = document.getElementById("button");
 
 playButton.addEventListener("click", function() {
     document.getElementById("button").innerHTML = "Try again!";
     playGame();
-});
+});*/
