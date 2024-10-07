@@ -1,3 +1,8 @@
+// A function to toggle the display of them HTML elements
+function toggleElementDisplay() {
+
+}
+
 // A function that randomly returns string values: "rock", "paper", "scissors"
 function getComputerChoice() {
     // Get a very simple, evenly distributed random between 0 and 100 as integers 
@@ -86,9 +91,36 @@ let playerScore;
 let computerScore;
 let roundWinner;
 
-/*const playButton = document.getElementById("button");
+// Add a div menu and buttons!
+const menuButtons = document.body.appendChild(document.createElement("div"));
+      menuButtons.setAttribute("class", "menu-container")
+const playButton = menuButtons.appendChild(document.createElement("button"));
+      playButton.setAttribute("class", "playButton");
+      playButton.textContent = "Play!";
 
-playButton.addEventListener("click", function() {
-    document.getElementById("button").innerHTML = "Try again!";
-    playGame();
-});*/
+// The other div that contains the rest of the buttons
+const gameDiv = menuButtons.appendChild(document.createElement("div"));
+      gameDiv.setAttribute("class", "gameDiv");
+
+const rockButton = gameDiv.appendChild(document.createElement("button"));
+      rockButton.setAttribute("class", "rockButton");
+      rockButton.textContent = "Rock";
+const paperButton = gameDiv.appendChild(document.createElement("button"));
+      paperButton.setAttribute("class", "paperButton");
+      paperButton.textContent = "Paper";
+const scissorsButton = gameDiv.appendChild(document.createElement("button"));
+      scissorsButton.setAttribute("class", "scissorsButton");
+      scissorsButton.textContent = "Scissors";
+
+// Now we listen for any clicks inside the menu div box
+menuButtons.addEventListener("click", (event) => {
+
+    let button = event.target;
+    //console.log(`The ${button.classList} was pressed!`);
+
+    if( button.classList == "playButton" ) {
+        playButton.textContent = "Try again!";
+        //console.log(`The play Button was pressed!`);
+        toggleElementDisplay();
+    }
+});
